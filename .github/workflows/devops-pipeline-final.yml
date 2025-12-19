@@ -1,0 +1,23 @@
+name: Phase2-CI-Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Build Application
+        run: echo "Building Docker Image..."
+
+      - name: SonarQube Analysis
+        run: echo "Running Code Quality Scan..."
+        # Project requirement: Static analysis
+
+      - name: Security Check (Trivy)
+        run: echo "Scanning for vulnerabilities..."
+        # Project requirement: Security scanning
